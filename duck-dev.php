@@ -30,7 +30,6 @@ class DuckDev_Custom {
 	public function __construct() {
 
 		add_filter( 'the_title', array( $this, 'the_title' ) );
-		add_filter( 'docu_doc_post_type_args', array( $this, 'docs_slug' ) );
 	}
 
 	/**
@@ -48,23 +47,6 @@ class DuckDev_Custom {
 		}
 
 		return $title;
-	}
-
-	/**
-	 * Change url slug for docs.
-	 *
-	 * Change the default url slug "doc" of docu docs
-	 * links to "documentation"
-	 *
-	 * @param array $docu_args Docu arguments.
-	 *
-	 * @return string
-	 */
-	function docs_slug( $docu_args ) {
-
-		$docu_args['rewrite'] = array( 'slug' => 'documentation' );
-
-		return $docu_args;
 	}
 }
 
