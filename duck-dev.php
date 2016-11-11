@@ -65,10 +65,13 @@ class DuckDev_Custom {
 				color: #ffffff;
 			}
 			body {
-				background: url(https://cdn.duckdev.com/wp-content/uploads/2016/11/DuckDev-Login.jpg) no-repeat 0 0 #fff !important;;
+				background: url(https://duckdev.com/wp-content/uploads/2016/11/DuckDev-Login-BG-1.jpg) repeat center center fixed !important;
 			}
 			#jetpack-sso-wrap a {
 				color: #555d66 !important;
+			}
+			#login .button-primary {
+				color: #fff !important;
 			}
 		</style>
 		<?php
