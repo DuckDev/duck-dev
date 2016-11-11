@@ -29,24 +29,71 @@ class DuckDev_Custom {
 	 */
 	public function __construct() {
 
-		add_filter( 'the_title', array( $this, 'the_title' ) );
+		add_filter( 'docu_doc_post_type_args', array( $this, 'docs_slug' ) );
+		add_action( 'login_enqueue_scripts', array( $this, 'login_style' ) );
+		add_filter( 'login_headertitle', array( $this, 'login_url_title' ) );
 	}
 
 	/**
-	 * Do not show title on specific page.
+	 * Customize the login page screen.
 	 *
 	 * @param string $title Page title.
 	 *
 	 * @return string
 	 */
-	public function the_title( $title ) {
+	public function login_style( $title ) {
 
-		// Do not show on front page.
-		if ( is_home() || is_front_page() ) {
-			return '';
-		}
+		?>
+		<style type="text/css">
+			#login h1 a, .login h1 a {
+				background-image: url(https://cdn.duckdev.com/wp-content/uploads/2016/10/Duck-Dev.jpg);
+				height: 176px;
+			}
+			#login .button-primary {
+				background: #404040;
+				border-color: #404040;
+				-webkit-box-shadow: 0 1px 0 #000000;
+				box-shadow: 0 1px 0 #000000;
+				text-shadow: 0 -1px 1px #262626, 1px 0 1px #262626, 0 1px 1px #262626, -1px 0 1px #262626;
+			}
+			.login #nav a, .login #backtoblog a {
+				color: #fff;
+			}
+			.login #backtoblog a:hover, .login #nav a:hover, .login h1 a:hover {
+				color: #ffffff;
+			}
+			body {
+				background: url(https://cdn.duckdev.com/wp-content/uploads/2016/11/DuckDev-Login.jpg) no-repeat 0 0 #fff;
+			}
+		</style>
+		<?php
+	}
 
-		return $title;
+	/**
+	 * Change login page logo.
+	 *
+	 * @return string
+	 */
+	public function login_url_title( $title ) {
+
+		return 'Back to ' . get_bloginfo( 'name' );
+	}
+
+	/**
+	 * Change url slug for docs.
+	 *
+	 * Change the default url slug "doc" of docu docs
+	 * links to "documentation"
+	 *
+	 * @param array $docu_args Docu arguments.
+	 *
+	 * @return string
+	 */
+	function docs_slug( $docu_args ) {
+
+		$docu_args['rewrite'] = array( 'slug' => 'docs' );
+
+		return $docu_args;
 	}
 }
 
