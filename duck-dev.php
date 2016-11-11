@@ -46,8 +46,10 @@ class DuckDev_Custom {
 		?>
 		<style type="text/css">
 			#login h1 a, .login h1 a {
-				background-image: url(https://cdn.duckdev.com/wp-content/uploads/2016/10/Duck-Dev.jpg);
-				height: 176px;
+				background-image: url(https://cdn.duckdev.com/wp-content/uploads/2016/11/Duck-Dev.png);
+				height: 194px;
+				background-size: 176px;
+				width: 183px;
 			}
 			#login .button-primary {
 				background: #404040;
@@ -63,7 +65,10 @@ class DuckDev_Custom {
 				color: #ffffff;
 			}
 			body {
-				background: url(https://cdn.duckdev.com/wp-content/uploads/2016/11/DuckDev-Login.jpg) no-repeat 0 0 #fff;
+				background: url(https://cdn.duckdev.com/wp-content/uploads/2016/11/DuckDev-Login.jpg) no-repeat 0 0 #fff !important;;
+			}
+			#jetpack-sso-wrap a {
+				color: #555d66 !important;
 			}
 		</style>
 		<?php
