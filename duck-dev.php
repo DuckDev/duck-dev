@@ -17,6 +17,9 @@
  * @link     https://duckdev.com
  */
 
+// Change 'download' slug to product.
+define( 'EDD_SLUG', 'products' );
+
 // If this file is called directly, abort.
 defined( 'WPINC' ) or die('Hold on, looser!');
 
