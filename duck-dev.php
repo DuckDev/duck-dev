@@ -76,6 +76,15 @@ class DuckDev_Custom {
 			#login .button-primary {
 				color: #fff !important;
 			}
+			.login #login_error, .login .message {
+				border-left: 4px solid #000;
+			}
+			a {
+				color: #000;
+			}
+			.login #login_error {
+				border-left-color: #000;
+			}
 		</style>
 		<?php
 
