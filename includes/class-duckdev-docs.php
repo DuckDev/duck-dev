@@ -45,12 +45,14 @@ class DuckDev_Docs {
 		if ('https://duckdev.com/support' === get_site_url()) { ?>
 			<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js" defer></script>
 			<script type="text/javascript">
-				docsearch({
-					apiKey: 'c92d9543f67766248d3fe1ee9f714640',
-					indexName: 'duckdev',
-					inputSelector: '.duckdevdocs',
-					debug: false
-				});
+				window.onload = function() {
+					docsearch({
+						apiKey: 'c92d9543f67766248d3fe1ee9f714640',
+						indexName: 'duckdev',
+						inputSelector: '.duckdevdocs',
+						debug: false
+					});
+				}
 			</script>
 		<?php }
 	}
