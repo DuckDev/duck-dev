@@ -89,7 +89,8 @@ class DuckDev_Docs {
 	 */
 	public function doc_class( $classes, $field ) {
 
-		if ( 'fld_8616820' === $field['ID'] ) {
+		// Search textbox field.
+		if ( 'fld_4982800' === $field['ID'] ) {
 			$classes['field'][] = 'duckdevdocs';
 		}
 
