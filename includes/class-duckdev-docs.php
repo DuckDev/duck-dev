@@ -28,6 +28,7 @@ class DuckDev_Docs {
 		add_filter( 'wp_footer', array( $this, 'scripts' ) );
 		add_filter( 'caldera_forms_render_field_classes', array( $this, 'doc_class' ), 10, 3 );
 		add_action( 'wp_head', array( $this, 'styles' ) );
+		add_shortcode( 'ddd_searchbox', array( $this, 'search_box' ) );
 	}
 
 	/**
@@ -95,6 +96,29 @@ class DuckDev_Docs {
 		}
 
 		return $classes;
+	}
+
+	/**
+	 * Custom search form shortcode.
+	 *
+	 * Load docu search form as shortcode.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 *
+	 * @return file
+	 */
+	public function search_box() {
+
+		ob_start();
+
+		// Only if class available.
+		if ( class_exists( 'DOCU_Template_Loader' ) ) {
+			$template = new DOCU_Template_Loader;
+			$template->get_template_part( 'docu-search-form' );
+		}
+
+		return ob_get_clean();
 	}
 
 }
