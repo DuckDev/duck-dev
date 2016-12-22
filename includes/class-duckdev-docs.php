@@ -26,6 +26,7 @@ class DuckDev_Docs {
 	public function __construct() {
 
 		add_filter( 'wp_footer', array( $this, 'scripts' ) );
+		add_filter( 'caldera_forms_render_field_classes', array( $this, 'doc_class' ), 10, 3 );
 		add_action( 'wp_head', array( $this, 'styles' ) );
 	}
 
@@ -73,6 +74,26 @@ class DuckDev_Docs {
 		if ('https://duckdev.com/support' === get_site_url()) { ?>
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
 		<?php }
+	}
+
+	/**
+	 * Add doc autocomplete class to field.
+	 *
+	 * Add autocomplete class to the form field to get auto
+	 * suggestions when user types thier issues.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 *
+	 * @return array
+	 */
+	public function doc_class( $classes, $field ) {
+
+		if ( 'fld_8616820' === $field['ID'] ) {
+			$classes['field'][] = 'duckdevdocs';
+		}
+
+		return $classes;
 	}
 
 }
