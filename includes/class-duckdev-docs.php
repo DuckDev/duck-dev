@@ -25,9 +25,9 @@ class DuckDev_Docs {
 	 */
 	public function __construct() {
 
-		add_filter( 'wp_footer', array( $this, 'scripts' ) );
+		//add_filter( 'wp_footer', array( $this, 'scripts' ) );
 		add_filter( 'caldera_forms_render_field_classes', array( $this, 'doc_class' ), 10, 3 );
-		add_action( 'wp_head', array( $this, 'styles' ) );
+		//add_action( 'wp_head', array( $this, 'styles' ) );
 		add_shortcode( 'ddd_searchbox', array( $this, 'search_box' ) );
 	}
 
