@@ -24,6 +24,7 @@ class DuckDev_Misc {
 
 		add_filter( 'docu_doc_post_type_args', array( $this, 'docs_slug' ) );
 		add_filter( 'edd_download_labels', array( $this, 'change_download_label' ) );
+		add_filter( 'edd_default_downloads_name', array( $this, 'change_download_names' ) );
 	}
 
 	/**
@@ -58,6 +59,7 @@ class DuckDev_Misc {
 			$labels = array(
 				'name' => _x( 'Products', 'post type general name', 'duck-dev' ),
 				'singular_name' => _x( 'Product', 'post type singular name', 'duck-dev' ),
+				'name' => _x( 'Products', 'post type general name', 'duck-dev' ),
 				'add_new' => __( 'Add New', 'duck-dev' ),
 				'add_new_item' => __( 'Add New Product', 'duck-dev' ),
 				'edit_item' => __( 'Edit Product', 'duck-dev' ),
@@ -69,14 +71,32 @@ class DuckDev_Misc {
 				'not_found_in_trash' => __( 'No Products found in Trash', 'duck-dev' ),
 				'parent_item_colon' => '',
 				'menu_name' => __( 'Products', 'duck-dev' ),
-				'featured_image' => __( '%1$s Image', 'easy-digital-downloads' ),
-				'set_featured_image' => __( 'Set %1$s Image', 'easy-digital-downloads' ),
-				'remove_featured_image' => __( 'Remove %1$s Image', 'easy-digital-downloads' ),
-				'use_featured_image' => __( 'Use as %1$s Image', 'easy-digital-downloads' ),
+				'featured_image' => __( '%1$s Image', 'duck-dev' ),
+				'set_featured_image' => __( 'Set %1$s Image', 'duck-dev' ),
+				'remove_featured_image' => __( 'Remove %1$s Image', 'duck-dev' ),
+				'use_featured_image' => __( 'Use as %1$s Image', 'duck-dev' ),
 			);
 		}
 
 		return $labels;
+	}
+
+	/**
+	 * Change EDD downloads names to products.
+	 *
+	 * @return array Array of names.
+	 */
+	public function change_download_names( $defaults ) {
+
+		if ('https://duckdev.com' === get_site_url()) {
+
+			$defaults = array(
+				'singular' => __( 'Product', 'duck-dev' ),
+				'plural'   => __( 'Products','duck-dev' )
+			);
+		}
+
+		return $defaults;
 	}
 
 }
