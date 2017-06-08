@@ -50,10 +50,10 @@ class DuckDev_Login {
 				text-shadow: 0 -1px 1px #262626, 1px 0 1px #262626, 0 1px 1px #262626, -1px 0 1px #262626;
 			}
 			.login #nav a, .login #backtoblog a {
-				color: #fff;
+				color: #e8cf50 !important;
 			}
 			.login #backtoblog a:hover, .login #nav a:hover, .login h1 a:hover {
-				color: #ffffff;
+				color: #e8cf50 !important;
 			}
 			body {
 				background: url(https://cdn.duckdev.com/wp-content/uploads/2017/06/DuckDevLogin.jpg) no-repeat center center fixed !important;
