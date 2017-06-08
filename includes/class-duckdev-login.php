@@ -56,7 +56,11 @@ class DuckDev_Login {
 				color: #ffffff;
 			}
 			body {
-				background: url(https://duckdev.com/wp-content/uploads/2016/11/DuckDev-Login-BG-1.jpg) repeat center center fixed !important;
+				background: url(https://cdn.duckdev.com/wp-content/uploads/2017/06/DuckDevLogin.jpg) no-repeat center center fixed !important;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
 			}
 			#jetpack-sso-wrap a {
 				color: #555d66 !important;
